@@ -17,7 +17,7 @@ def find_groups (stud_index):
     for i in range(count_groups):
         group_name.append(column_names[i+2])
         group_array.append(values[stud_index][i+2])
-        if (group_array[i]!= ''):
+        if (group_array[i]!= 'nan'):
             if (group_name[i] != 'Вступ до математики'):
                 st.write (f"{group_name[i]}: {group_array[i]}")
                 print(f"{group_name[i]}: {group_array[i]}")
