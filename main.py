@@ -3,12 +3,13 @@ import pandas as pd # робота з таблицею excel
 #починаєм виводити в streamlit
 st.title ("Пошук груп")
 surname = st.text_input("Прізвище: ")
-df = pd.read_table("https://docs.google.com/spreadsheets/d/1eNaYYeo2AYIqKg_PsAXM22OndLESix1cYcPT0TlNB7s/edit?usp=sharing")
+df = pd.read_excel("https://docs.google.com/spreadsheets/d/e/2PACX-1vT2aEeS8hEAxrMseZiHx56A80ypA9BKjXxSLStQ9T5KEh6CMhqLPswQ5pB-GpyblSvvM2U0sTMJpaCj/pub?output=xlsx")
 values = df.values.tolist() # перетворює dataframe на list, values -- вся наша таблиця
 values_surname = df.iloc[:, 0].values.tolist() # df.iloc шукає вибирає потрібні значення
 column_names = df.columns.tolist()
 group_array = []
 group_name = []
+print (df)
 
 #Функція нижче буде виводити назву групи і саму групу людини
 def find_groups (stud_index):
