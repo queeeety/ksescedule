@@ -3,7 +3,7 @@ import pandas as pd # робота з таблицею excel
 #починаєм виводити в streamlit
 st.title ("Пошук груп")
 surname = st.text_input("Прізвище: ")
-df = pd.read_table("https://docs.google.com/spreadsheets/d/1eNaYYeo2AYIqKg_PsAXM22OndLESix1cYcPT0TlNB7s/edit?usp=sharing")
+df = pd.read_excel("ITBA27_1term.xlsx")
 values = df.values.tolist() # перетворює dataframe на list, values -- вся наша таблиця
 values_surname = df.iloc[:, 0].values.tolist() # df.iloc шукає вибирає потрібні значення
 column_names = df.columns.tolist()
