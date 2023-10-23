@@ -2,10 +2,11 @@ import streamlit as st
 import pandas as pd # робота з таблицею excel
 #починаєм виводити в streamlit
 st.title ("Пошук груп")
-surname = st.text_input("Прізвище: ")
+#surname = st.text_input("Прізвище: ")
 df = pd.read_excel("https://docs.google.com/spreadsheets/d/e/2PACX-1vT2aEeS8hEAxrMseZiHx56A80ypA9BKjXxSLStQ9T5KEh6CMhqLPswQ5pB-GpyblSvvM2U0sTMJpaCj/pub?output=xlsx")
 values = df.values.tolist() # перетворює dataframe на list, values -- вся наша таблиця
 values_surname = df.iloc[:, 0].values.tolist() # df.iloc шукає вибирає потрібні значення
+surname = st.selectbox("Прізвище: ", values_surname)
 column_names = df.columns.tolist()
 group_array = []
 group_name = []
