@@ -4,7 +4,10 @@ import pandas as pd # робота з таблицею excel
 #починаєм виводити в streamlit
 st.title ("Пошук груп")
 #surname = st.text_input("Прізвище: ")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 414331ea58d7610824dc0a67621be73658ce637c
 df = pd.read_excel("https://docs.google.com/spreadsheets/d/e/2PACX-1vT2aEeS8hEAxrMseZiHx56A80ypA9BKjXxSLStQ9T5KEh6CMhqLPswQ5pB-GpyblSvvM2U0sTMJpaCj/pub?output=xlsx")
 df = df.fillna(0)
 values = df.values.tolist() # перетворює dataframe на list, values -- вся наша таблиця
