@@ -1,11 +1,15 @@
 import streamlit as st
+import numpy as np
 import pandas as pd # робота з таблицею excel
 #починаєм виводити в streamlit
 st.title ("Пошук груп")
-surname = st.text_input("Прізвище: ")
+#surname = st.text_input("Прізвище: ")
+
 df = pd.read_excel("https://docs.google.com/spreadsheets/d/e/2PACX-1vT2aEeS8hEAxrMseZiHx56A80ypA9BKjXxSLStQ9T5KEh6CMhqLPswQ5pB-GpyblSvvM2U0sTMJpaCj/pub?output=xlsx")
+df = df.fillna(0)
 values = df.values.tolist() # перетворює dataframe на list, values -- вся наша таблиця
 values_surname = df.iloc[:, 0].values.tolist() # df.iloc шукає вибирає потрібні значення
+surname = st.selectbox("Прізвище: ", values_surname)
 column_names = df.columns.tolist()
 group_array = []
 group_name = []
@@ -16,8 +20,8 @@ def find_groups (stud_index):
     for i in range(count_groups):
         group_name.append(column_names[i+2])
         group_array.append(values[stud_index][i+2])
-        if (group_array[i] != 'nan'):
-            if (group_name[i] != 'Вступ до математики'):
+        if group_name[i] != 'Вступ до математики':
+            if group_array[i] != 0: 
                 st.write (f"{group_name[i]}: {group_array[i]}")
                 print(f"{group_name[i]}: {group_array[i]}")
     print(group_array)
