@@ -9,6 +9,9 @@ df = pd.read_excel("https://docs.google.com/spreadsheets/d/e/2PACX-1vT2aEeS8hEAx
 df = df.fillna(0)
 values = df.values.tolist() # перетворює dataframe на list, values -- вся наша таблиця
 values_surname = df.iloc[:, 0].values.tolist() # df.iloc шукає вибирає потрібні значення
+#забирає від прізвищ пробіли
+for i in range(len(values_surname)):
+        values_surname[i] = values_surname[i].strip()
 surname = st.selectbox("Прізвище: ", values_surname)
 column_names = df.columns.tolist()
 group_array = []
@@ -32,9 +35,6 @@ def find_surname(surname):
         i+=1
     return (i)
 
-#забирає від прізвищ пробіли
-for i in range(len(values_surname)):
-        values_surname[i] = values_surname[i].strip()
 
 if not surname in values_surname:
         st.write("Неправильно введене прізвище")
